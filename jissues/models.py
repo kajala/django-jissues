@@ -83,6 +83,14 @@ class IssueBase(models.Model):
         return f"{self.title} #{self.number}"
 
     @property
+    def is_late(self) -> bool:
+        return self.due and self.due < now().date()
+
+    @property
+    def is_due(self) -> bool:
+        return self.due and self.due <= now().date()
+
+    @property
     def is_closed(self) -> bool:
         return self.state == IssueBase.State.CLOSED
 
