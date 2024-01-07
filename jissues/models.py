@@ -45,7 +45,7 @@ class IssueBase(models.Model):
         OPEN = "O", _("issue.state.open")
         CLOSED = "C", _("issue.state.closed")
 
-    number = models.IntegerField(_("number"), db_index=True)
+    number = models.IntegerField(_("number"), db_index=True, blank=True)
     title = models.CharField(_("title"), max_length=128, db_index=True)
     state = models.CharField(_("state"), choices=State.choices, default=State.OPEN, max_length=1, db_index=True)
     due = models.DateField(_("issue.due.label"), blank=True, null=True, default=None, db_index=True)
