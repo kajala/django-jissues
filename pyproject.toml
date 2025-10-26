@@ -1,5 +1,43 @@
+[build-system]
+requires = ["setuptools>=80.9.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-jissues"
+version = "4.2.1"
+description = "Collection of small utilities for Django and Django REST framework projects."
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+license-files = ["LICENSE.txt"]
+authors = [
+  { name = "Jani Kajala", email = "kajala@gmail.com" }
+]
+dependencies = [
+    "Django>=4.0",
+    "django-jutil>=4.1.1",
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+]
+
+[tool.setuptools]
+packages = ["jissues"]
+include-package-data = true
+
+[project.urls]
+"Homepage" = "https://github.com/kajala/django-jissues"
+"Issues" = "https://github.com/kajala/django-jissues/issues"
+
 [tool.black]
 line-length = 159
+
+[tool.mypy]
+plugins = ["mypy_django_plugin.main"]
+
+[tool.django-stubs]
+django_settings_module = "project.settings"
 
 [tool.ruff]
 # Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
@@ -32,8 +70,6 @@ exclude = [
     "dist",
     "node_modules",
     "venv",
-    "migrations",
-    "tests.py",
 ]
 
 # Same as Black.
