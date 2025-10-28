@@ -23,8 +23,11 @@ classifiers = [
 ]
 
 [tool.setuptools]
-packages = ["jissues"]
 include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["jissues*"]
 
 [project.urls]
 "Homepage" = "https://github.com/kajala/django-jissues"
